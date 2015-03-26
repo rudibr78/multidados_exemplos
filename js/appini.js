@@ -13,7 +13,7 @@ if (document.cookie.toString().indexOf('RDD=RDD') === -1) {
 MSG_SEM_NET = "Sua conexão com a internet parece estar desligada. Por favor verifique sua conexão e tente de novo.";
 
 function app_connected() {
-    if (typeof navigator == 'undefined')
+    if (typeof navigator == 'undefined' || typeof Connection == 'undefined')
         return true;
 
     //API antiga (com .network.)
@@ -33,19 +33,32 @@ function app_connected() {
 }
 
 function load_ini_script() {
-    $('#img_splash').remove();
     $('#divsemnet').remove();
+
     $('body').css({display: 'none', visibility: 'hidden'});
+
+    $('html').css({backgroundColor: '#FFF'
+        , backgroundImage: 'url("' + CP.URL_APP + 'imgs/splash_loading.png")'
+        , backgroundRepeat: 'no-repeat'
+        , backgroundAttachment: 'fixed'
+        , backgroundPosition: 'center'});
+
     $('head').append('<script' + ' type="text/javascript"' + ' src="' + CP.URL_APP + 'js/app.js?v=' + CP.jsv + '"' + '><' + '/' + 'script>');
+
     window.load_ini_script_interval = window.setInterval(function() {
         if ($('body').hasClass('ui-mobile-viewport')) {//verificao confiavel que o jqm terminou de renderizar
-            $('html').css('background-color', '');
-            $('html').css('background-image', '');
-            $('html').css('background-repeat', '');
+
+            $('html').css({backgroundColor: ''
+                , backgroundImage: ''
+                , backgroundRepeat: ''
+                , backgroundAttachment: ''
+                , backgroundPosition: ''});
+
             $('body').css({display: '', visibility: 'visible'});
+
             window.clearInterval(window.load_ini_script_interval);
         }
-    });
+    }, 100);
 }
 
 $(function() {
@@ -62,7 +75,7 @@ $(function() {
                     wait_one_int = false;
                 } else {
                     $('#divsemnet').remove();
-                    $('body').append('<div id="divsemnet">' + MSG_SEM_NET + '</div>');
+                    $('body').append('<div id="divsemnet" style="font-family:Arial">' + MSG_SEM_NET + '</div>');
                 }
             }
         }, 1000);
