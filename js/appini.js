@@ -39,6 +39,9 @@ function load_ini_script() {
     $('head').append('<script' + ' type="text/javascript"' + ' src="' + CP.URL_APP + 'js/app.js?v=' + CP.jsv + '"' + '><' + '/' + 'script>');
     window.load_ini_script_interval = window.setInterval(function() {
         if ($('body').hasClass('ui-mobile-viewport')) {//verificao confiavel que o jqm terminou de renderizar
+            $('html').css('background-color', '');
+            $('html').css('background-image', '');
+            $('html').css('background-repeat', '');
             $('body').css({display: '', visibility: 'visible'});
             window.clearInterval(window.load_ini_script_interval);
         }
