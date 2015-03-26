@@ -2,7 +2,7 @@
 CP.jsv = Math.ceil(Math.random() * 999999999999999) + 1;
 
 //cookie para debug
-if (document.cookie.toString().indexOf('RDD=RDD') !== -1) {
+if (document.cookie.toString().indexOf('RDD=RDD') === -1) {
     CP.URL_API = 'http://200.155.13.171:8080/m_apps/multidados_exemplosw/';
     CP.URL_APP = 'http://200.155.13.171:8080/m_apps/multidados_exemplosw/';
 } else {
