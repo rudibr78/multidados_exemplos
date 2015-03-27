@@ -134,7 +134,7 @@
 	
     <preference name="StatusBarOverlaysWebView" value="true"/>
     <preference name="StatusBarBackgroundColor" value="#EAEAEA" />
-
+    <preference name="stay-in-webview" value="true" />
 
     <icon src="icon.png" />
     <icon src="icon/ios/icon-57.png" gap:platform="ios" width="57" height="57" />	
