@@ -2,13 +2,16 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         xmlns:android = "http://schemas.android.com/apk/res/android"
-        id        = "com.phonegap.exemplos_multidados"
+        id        = "com.phonegap.exemplosmultidados"
         version   = "1.0.5"
         versionCode="105"
 >
-    <name>Exemplos Multidados</name>
+    <name>
+        Exemplos Multidados
+    </name>
 
-    <description>Exemplos Multidados
+    <description>
+        Exemplos Multidados
     </description>
 
     <author href="https://multidadosti.com.br" email="rudi.feijo@multidadosti.com.br">
